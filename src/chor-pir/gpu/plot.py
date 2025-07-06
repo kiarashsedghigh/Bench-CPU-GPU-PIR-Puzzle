@@ -106,8 +106,8 @@ for q_val in unique_q_vals:
     )
 
 # Set axis labels
-ax.set_xlabel("Number of Rows in DB (r)", fontsize=20)
-ax.set_ylabel("Runtime (ms)", fontsize=20)
+ax.set_xlabel("Number of Rows in DB (r)", fontsize=16)
+ax.set_ylabel("Runtime (ms)", fontsize=16)
 
 # Valid tick formatting
 ax.tick_params(axis='both', labelsize=20)
@@ -119,22 +119,6 @@ ax.set_xscale("log", base=2)
 ax.set_yscale("log", base=10)
 ax.grid(True, which="both", linestyle="--", linewidth=0.5)
 
-# # Legend above the plot
-# legend = ax.legend(
-#     title="Queries (q)", title_fontsize=14, fontsize=13,
-#     loc='upper center', bbox_to_anchor=(0.5, 1.3), ncol=8,
-#     frameon=True, fancybox=True, shadow=False, borderaxespad=0.0
-# )
-# legend.get_title().set_fontweight('bold')
-
-# legend = ax.legend(
-#     title="Queries (q)", title_fontsize=14, fontsize=13,
-#     loc='upper center', bbox_to_anchor=(0.5, 1.3), ncol=6,
-#     frameon=True, fancybox=True, shadow=False, borderaxespad=0.0
-# )
-# legend.get_title().set_fontweight('bold')
-
 # Adjust layout to fit legend
 plt.tight_layout(rect=[0, 0, 1, 0.9])  # Leaves 10% padding on top
 plt.savefig("gpuchorpir.png", dpi=300)
-# plt.show()
