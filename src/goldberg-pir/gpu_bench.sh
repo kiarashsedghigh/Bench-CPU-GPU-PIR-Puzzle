@@ -1,10 +1,10 @@
 nvcc gpu_mm_mult.cu -o gpu_main -O3
 mkdir -p gpu-times  # Ensure output directory exists
 
-for db_exp in {11..17}; do
+for db_exp in {10,12,14,16}; do
     db_size=$((2**db_exp))
     echo $db_size
-    for query_exp in {0..10}; do
+    for query_exp in {0,7,10}; do
         query_count=$((2**query_exp))
         filename="gpu-times/time${db_exp}-${query_count}.txt"
 

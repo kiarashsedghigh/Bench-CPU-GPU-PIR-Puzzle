@@ -1,3 +1,5 @@
+#include <chrono>
+
 template<typename T>
 std::istream& operator>>(const std::string& in, T& v)
 {
@@ -118,7 +120,7 @@ void generate_random_HNF(vec_ZZ& out,long n,long bit, ZZ seed)
 {
     SetSeed(seed);
     out.SetLength(n); clear(out);
-    ZZ p; GenPrime(p,bit*n);
+    ZZ p;    GenPrime(p,bit*n);
     out(1) = p;
     for (int i=2; i<=n; i++)
     {

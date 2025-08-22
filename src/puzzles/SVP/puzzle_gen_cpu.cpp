@@ -5,6 +5,8 @@
 #include <thread>
 #include <chrono>
 #include <mutex>
+#include <cstring>   // for memset
+
 
 NTL_CLIENT;
 
@@ -21,8 +23,8 @@ void thread_worker(int thread_id, int num_iters, long n, long bit, ZZ seed)
 
 int main(int argc, char** argv)
 {
-    long n = 80;
-    long bit = 20;
+    long n = 79;
+    long bit = 10;
     ZZ seed; seed = 0;
 
     PARSE_MAIN_ARGS {
@@ -32,7 +34,7 @@ int main(int argc, char** argv)
         SYNTAX();
     }
 
-    int count = 1 << 12;
+    int count = 1 << 16;
     int num_threads = std::thread::hardware_concurrency(); // or set manually
 
     int per_thread = count / num_threads;

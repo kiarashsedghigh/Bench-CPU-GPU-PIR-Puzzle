@@ -316,6 +316,12 @@ void run(const int M, const int K, const int N, const long INDEX, const int Q, c
     print_matrix<DATA_TYPE>(&db, K, N, (char *) "DB");
 #endif
 
+
+    struct timezone tz;
+    struct timeval startTime, endTime;
+    gettimeofday(&startTime, &tz);
+
+
     printf("\n----------- Creating Query for Index %ld -----------\n", INDEX);
     Matrix<DATA_TYPE> query[L]; // L queries for L servers
     long alphas[L]; // Picking L random evaluation points a_i
@@ -374,6 +380,11 @@ void run(const int M, const int K, const int N, const long INDEX, const int Q, c
         }
     }
 
+
+    gettimeofday(&endTime, &tz);
+    printf("Query time\n");
+
+    report_running_time(&startTime, &endTime, &tz);
 #ifdef DEBUG_MODE
     // Printing Queries
     for (int i = 0; i < L; i++) {
@@ -404,7 +415,13 @@ void run(const int M, const int K, const int N, const long INDEX, const int Q, c
         Matrix<long> recovered_block_cpu;
         create_zero_matrix<long>(&recovered_block_cpu, 1, N);
 
+
+          gettimeofday(&startTime, &tz);
+
         goldberg_pir_easy_recover(alphas, response_cpu, &recovered_block_cpu, N, L, T, Q);
+    gettimeofday(&endTime, &tz);
+    report_running_time(&startTime, &endTime, &tz);
+
 
         printf("Comparing the recovered block with the actual database record at index INDEX: ");
         for (int i=0; i < N ;i++){
