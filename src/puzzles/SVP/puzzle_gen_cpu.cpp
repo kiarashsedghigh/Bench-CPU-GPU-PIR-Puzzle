@@ -23,7 +23,7 @@ void thread_worker(int thread_id, int num_iters, long n, long bit, ZZ seed)
 
 int main(int argc, char** argv)
 {
-    long n = 79;
+    long n = 69;
     long bit = 10;
     ZZ seed; seed = 0;
 
@@ -34,7 +34,7 @@ int main(int argc, char** argv)
         SYNTAX();
     }
 
-    int count = 1 << 16;
+    int count = 1 << 12;
     int num_threads = std::thread::hardware_concurrency(); // or set manually
 
     int per_thread = count / num_threads;

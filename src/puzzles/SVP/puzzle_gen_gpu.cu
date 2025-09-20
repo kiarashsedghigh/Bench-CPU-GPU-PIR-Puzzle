@@ -44,7 +44,7 @@ __global__ void simulate_generate_random_HNF(int* output, int n, int bit, int co
 int main() {
     int n = 79;
     int bit = 10;
-    int count = 1 << 10;
+    int count = 1 << 18;
 
     int* d_output;
     cudaMalloc((void**)&d_output, sizeof(int) * n * count);

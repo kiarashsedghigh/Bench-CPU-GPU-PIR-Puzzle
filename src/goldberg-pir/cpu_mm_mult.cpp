@@ -4,6 +4,9 @@
 #include <ctime>
 #include <cmath>
 #include <cstring>
+#include <iostream>
+
+#include <chrono>
 
 #define CEIL(M, N) (((M) + (N)-1) / (N))
 #define CEIL_DIV(M, N) (((M) + (N)-1) / (N))
@@ -416,11 +419,20 @@ void run(const int M, const int K, const int N, const long INDEX, const int Q, c
         create_zero_matrix<long>(&recovered_block_cpu, 1, N);
 
 
-          gettimeofday(&startTime, &tz);
 
-        goldberg_pir_easy_recover(alphas, response_cpu, &recovered_block_cpu, N, L, T, Q);
-    gettimeofday(&endTime, &tz);
-    report_running_time(&startTime, &endTime, &tz);
+    auto start = std::chrono::high_resolution_clock::now();
+//          gettimeofday(&startTime, &tz);
+
+     goldberg_pir_easy_recover(alphas, response_cpu, &recovered_block_cpu, N, L, T, Q);
+    auto end = std::chrono::high_resolution_clock::now();
+auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+std::cout << "duration : " << duration.count() << " microseconds" << std::endl;
+
+
+//  gettimeofday(&endTime, &tz);
+
+
+report_running_time(&startTime, &endTime, &tz);
 
 
         printf("Comparing the recovered block with the actual database record at index INDEX: ");

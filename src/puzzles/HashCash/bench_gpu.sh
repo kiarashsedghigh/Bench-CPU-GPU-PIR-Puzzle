@@ -1,5 +1,7 @@
 #!/bin/bash
 
+nvcc -w hashcashtree_gen.cu -o hashcashtree_gen_gpu -O3
+
 # Configuration
 ITERATIONS=100
 PROGRAM="./hashcashtree_gen_gpu "  # Replace with actual executable path
