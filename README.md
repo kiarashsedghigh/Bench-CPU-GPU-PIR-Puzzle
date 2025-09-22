@@ -62,20 +62,6 @@ With advances in **wireless communication** and growing **spectrum scarcity**, S
 
 
 
-
-
-
-## 📦 Repository Contents
-
-- `src/` — Core source code of QPADL framework.
-- `include/` — Header files.
-- `tests/` — Unit and integration tests.
-- `benchmarks/` — Benchmarking scripts and performance evaluation.
-- `examples/` — Minimal usage examples and demos.
-- `docs/` — Additional documentation and protocol descriptions.
-
----
-
 ## ⚙️ System Requirements
 
 ### 🖥️ Hardware
@@ -123,3 +109,5 @@ QPADL was evaluated on the following experimental setup:
 Each QPADL instantiation and puzzle generation module has its own dedicated folder inside the `src/` directory. 
 Within these folders, you will find the corresponding **bash scripts** required to build and run the project.  
 
+For QPDAL's `OOP` instantiation, we refer to the original
+implementation of CIP-PIR available [here](https://github.com/encryptogroup/cip-pir.git).
