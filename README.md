@@ -13,7 +13,7 @@
 
 ## 📄 Paper Reference
 
-This repository contains the **reference implementation** of the cryptographic framework proposed in the paper:
+This repository contains the **benchmarking** of the cryptographic components used in the paper:
 
 > **QPADL: Post-Quantum Private Spectrum Access with Verified Location and DoS Resilience**  
 > **Authors:** Saleh Darzi, Saif Eddine Nouma, Kiarash Sedghighadikolaei, Attila Altay Yavuz  
